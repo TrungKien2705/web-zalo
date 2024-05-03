@@ -1,0 +1,49 @@
+.wellcome-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    .image-wellcome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 96%;
+        .image-logo {
+            width: 100%;
+            object-fit: contain;
+        }
+        :first-child {
+            height: 100px;
+        }
+    }
+    .text-logo {
+        width: 80%;
+    }
+    .img-logo {
+        min-height: 400px;
+    }
+    .set-height {
+        min-height: 350px;
+    }
+}
+.name-app {
+    text-align: center;
+    font-family: "MyFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 75px;
+    letter-spacing: 0.29em;
+}
+.text-slogan {
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+
+    color: var(--primary-02);
+}

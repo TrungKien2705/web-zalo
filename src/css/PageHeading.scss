@@ -1,0 +1,19 @@
+.back-to-page {
+    width: 100%;
+    margin: 0 15px 0px;
+    padding: 12px 40px 0 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-01);
+    text-decoration: none;
+    display: flex;
+    gap: 12px;
+    .icon-back {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .text-heading {
+        margin: 0 auto;
+        padding-right: 40px;
+    }
+}

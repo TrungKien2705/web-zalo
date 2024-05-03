@@ -1,0 +1,99 @@
+.faq-heading {
+    border-bottom: #777;
+    padding: 20px 60px;
+}
+.faq-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.hr-line {
+    width: 90%;
+    margin: 15px 0;
+}
+.faq-page {
+    width: 100% !important;
+    color: #444;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 30px 20px;
+    width: 60%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.faq-body {
+    margin: auto;
+    /* text-align: center; */
+    width: 90%;
+    padding: auto;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.faq-page:hover {
+    background-color: #f9f9f9;
+}
+
+/* Style the faq-page panel. Note: hidden by default */
+.faq-body {
+    padding: 0 18px;
+    background-color: white;
+    // display: none;
+    overflow: hidden;
+}
+
+.faq-page-icon {
+    /* Unicode character for "plus" sign (+) */
+    font-size: 30px;
+    font-weight: bold;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+.faq-page-icon-top {
+    margin-top: -5px;
+}
+
+.icon-faqs {
+    .image-icon {
+        position: fixed;
+        top: 7%;
+        right: 3%;
+        z-index: 1000;
+        width: 30px;
+        height: 30px;
+    }
+}
+.faqs-text {
+    font-size: 15px;
+    img {
+        // width: 100% !important;
+        max-width: 100%; /* Đảm bảo ảnh không vượt quá kích thước của div */
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        display: flex;
+        // align-items: center;
+        // justify-content: center;
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    h1 {
+        padding: 10px !important;
+    }
+    iframe {
+        width: 100%;
+        height: 50vh;
+    }
+    p {
+        // color: red/;
+        text-align: inherit !important;
+    }
+}

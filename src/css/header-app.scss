@@ -1,0 +1,20 @@
+.haeder-app {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #394d5f;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    text-align: center;
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .title-app {
+        font-size: 15px;
+    }
+    .icon-notif {
+        padding-left: 16px;
+    }
+}

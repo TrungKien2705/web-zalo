@@ -1,0 +1,14 @@
+{
+    "app": {
+        "title": "Tử Vi Chân Cơ",
+        "headerColor": "",
+        "textColor": "white",
+        "statusBarColor": "#394d5f",
+        "leftButton": ""
+    },
+    "debug": false,
+    "listCSS": [],
+    "listSyncJS": [],
+    "listAsyncJS": [],
+    "pages": []
+}

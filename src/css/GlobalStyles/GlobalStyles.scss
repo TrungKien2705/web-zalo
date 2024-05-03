@@ -1,0 +1,64 @@
+@import "normalize.css";
+@import "../../../node_modules/normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Caramel&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap");
+
+:root {
+    --primary-01: #32a148;
+    --primary-02: #d32127;
+    --primary-03: #ffe3c1;
+    --primary-04: rgba(218, 149, 111, 1);
+    --text-01: #000000;
+    --text-02: #9d9d9d;
+    --bg-nav: #394d5f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+html {
+    font-size: 62.5%;
+    color: var(--text-01);
+}
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    color: var(--text-01);
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.page {
+    padding: 16px 16px 50px 16px;
+}
+.zaui-page {
+    min-height: auto;
+}
+.section-container {
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+.btn-fw {
+    width: 100%;
+    border-radius: 30px;
+    padding: 16px;
+    font-size: 1.6rem;
+}
+.btn-green {
+    background-color: var(--primary);
+    color: var(--primary-02);
+}
