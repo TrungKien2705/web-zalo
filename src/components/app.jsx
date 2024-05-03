@@ -15,7 +15,6 @@ import LaSo from '../pages/laso';
 import LasoSave from '../pages/lasoSave';
 import PostDetail from '../pages/post-detail';
 import myUserInfo from '../models/user-info';
-import ModalCalender from './modal-calender';
 import FAQPage from '../pages/faqs';
 import Notif from '../pages/notif';
 import HanList from '../pages/HanList';
@@ -71,14 +70,6 @@ const MyApp = () => {
                                         }
                                     ></Route>
 
-                                    <Route
-                                        path={path.CALENDARCHANGE}
-                                        element={
-                                            <>
-                                                <ModalCalender />
-                                            </>
-                                        }
-                                    ></Route>
                                     <Route
                                         path={path.HOROSCOPE}
                                         element={
