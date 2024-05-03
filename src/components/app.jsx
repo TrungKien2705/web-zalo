@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { App, ZMPRouter, AnimationRoutes, SnackbarProvider } from 'zmp-ui';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { App, SnackbarProvider } from 'zmp-ui';
 import { RecoilRoot } from 'recoil';
 import GlobalStyles from '../css/GlobalStyles';
 import { path } from '../constant';
@@ -26,7 +26,7 @@ const MyApp = () => {
             <GlobalStyles>
                 <App>
                     <SnackbarProvider>
-                        <ZMPRouter>
+                        <BrowserRouter>
                             <Routes>
                                 <Route
                                     path={path.WELLCOME}
@@ -122,7 +122,7 @@ const MyApp = () => {
                                 </Route>
                             </Routes>
                             {/* <BottomNavigationPage /> */}
-                        </ZMPRouter>
+                        </BrowserRouter>
                     </SnackbarProvider>
                 </App>
             </GlobalStyles>

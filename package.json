@@ -15,8 +15,10 @@
         "Samsung >= 5"
     ],
     "scripts": {
+        "dev": "vite",
         "start": "zmp start",
-        "deploy": "zmp deploy"
+        "deploy": "zmp deploy",
+        "build:web": "vite build"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.2.1",

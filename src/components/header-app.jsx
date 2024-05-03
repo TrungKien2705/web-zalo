@@ -2,8 +2,8 @@ import { Icon } from 'zmp-ui';
 import '../css/header-app.scss';
 import React from 'react';
 import { path } from '../constant';
-import { useNavigate } from 'zmp-ui';
 import myUserInfo from '../models/user-info';
+import { useNavigate } from 'react-router';
 
 const HeaderApp = () => {
     const navigate = useNavigate();

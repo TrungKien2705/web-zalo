@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import myUserInfo from '../models/user-info';
-import { Page, useNavigate } from 'zmp-ui';
+import { Page } from 'zmp-ui';
+import { useNavigate } from 'react-router';
+
 import '../css/app.scss';
 import '../css/wellcome.scss';
 import logoText from '../static/image/logo/logo-text.png';

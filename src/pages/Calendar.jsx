@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Page, useNavigate, Avatar, Radio, Checkbox } from 'zmp-ui';
+import { Page, Avatar, Radio, Checkbox } from 'zmp-ui';
 import '../css/calendar.scss';
+import { useNavigate } from 'react-router';
+
 import PageHeading from '../components/page-heading';
 import ChooseCal from '../static/icons/choose-calendar.svg';
 import ChangeCal from '../static/icons/change.svg';
@@ -159,7 +161,7 @@ const Calendar = () => {
                     </div>
 
                     {/* box 2 */}
-                    <div id="cal" className='cal-2'>
+                    <div id="cal" className="cal-2">
                         <div className="conner conner-top">
                             <span></span>
                         </div>

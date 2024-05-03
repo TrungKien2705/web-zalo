@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Page, useNavigate, Box, Button } from 'zmp-ui';
+import { Page, Box, Button } from 'zmp-ui';
 import '../css/result-la-so.scss';
 import Laso from '../static/image/laso.png';
+import { useNavigate } from 'react-router';
 
 const Gallery = () => {
     const navigate = useNavigate();

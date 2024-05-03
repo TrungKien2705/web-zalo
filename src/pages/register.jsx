@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import myUserInfo from '../models/user-info';
-import { Box, Button, Page, useNavigate } from 'zmp-ui';
+import { Box, Button, Page } from 'zmp-ui';
 import logoText from '../static/image/logo/logo-text.png';
 import logo from '../static/image/logo/logo.png';
 import '../css/register.scss';
 import BottomAlert from '../components/bottom-alert';
 import ModalLoading from '../components/modal-loading';
+import { useNavigate } from 'react-router';
 const Register = () => {
     const navigate = useNavigate();
     myUserInfo.navigateTo = navigate;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'zmp-ui';
+import { useNavigate } from 'react-router';
 import '../css/FAQPage.scss';
 import { path } from '../constant';
 import IconAsk from '../static/icons/Ask.svg';

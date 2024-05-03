@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Page, Box, Button, useNavigate } from 'zmp-ui';
+import { Page, Box, Button } from 'zmp-ui';
+import { useNavigate } from 'react-router';
+
 import '../css/laso.scss';
 import PageHeading from '../components/page-heading';
 import BackgroundPage from '../static/image/background/logo-12.png';

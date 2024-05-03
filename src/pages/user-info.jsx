@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../css/user-infor.scss';
 import PageHeading from '../components/page-heading';
-import { Icon, Page, useNavigate } from 'zmp-ui';
+import { Icon, Page } from 'zmp-ui';
+import { useNavigate } from 'react-router';
+
 import logo from '../static/image/logo/logo.png';
 import Folder from '../static/icons/folder-green.svg';
 import ArrowLong from '../static/icons/long-arrow.png';

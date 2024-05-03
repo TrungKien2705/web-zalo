@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Page, useNavigate } from 'zmp-ui';
+import { Page } from 'zmp-ui';
 import '../css/post-detail.scss';
 import PageHeading from '../components/page-heading';
 import Author from '../static/image/author/user.svg';

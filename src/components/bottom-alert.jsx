@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Button, Icon, useNavigate } from 'zmp-ui';
+import { Button } from 'zmp-ui';
 import IconLogo from '../static/image/logo/logo.png';
+import { useNavigate } from 'react-router';
 
 import '../css/alert.scss';
 import myUserInfo from '../models/user-info';

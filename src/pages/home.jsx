@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Page, useNavigate, Avatar, Icon, Box, Checkbox, Select, Tabs } from 'zmp-ui';
+import { Page, Avatar, Icon, Box, Checkbox, Select, Tabs } from 'zmp-ui';
+import { useNavigate } from 'react-router';
+
 import { path } from '../constant';
 import '../css/home.scss';
 import homeModel from '../models/home';
