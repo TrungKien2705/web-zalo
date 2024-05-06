@@ -4,7 +4,6 @@ import { App, SnackbarProvider } from 'zmp-ui';
 import { RecoilRoot } from 'recoil';
 import GlobalStyles from '../css/GlobalStyles';
 import { path } from '../constant';
-
 import WellCome from '../pages';
 import Register from '../pages/register';
 import Layout from './layout-bottom';
@@ -18,8 +17,9 @@ import myUserInfo from '../models/user-info';
 import FAQPage from '../pages/faqs';
 import Notif from '../pages/notif';
 import HanList from '../pages/HanList';
+import Login from '../pages/login';
 const MyApp = () => {
-    myUserInfo.login();
+    // myUserInfo.login();
     return (
         <RecoilRoot>
             <GlobalStyles>
@@ -36,6 +36,7 @@ const MyApp = () => {
                                     }
                                 ></Route>
                                 <Route path={path.REGISTER} element={<Register />}></Route>
+                                <Route path={path.LOGIN} element={<Login />}></Route>
                                 <Route
                                     path={path.FAQPAGE}
                                     element={

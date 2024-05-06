@@ -6,6 +6,7 @@ const API_BASE_URL = 'https://tuvichanco.net';
 const Config = {
     // register
     API_USER_REGISTER: API_BASE_URL + `/api/appRegister`,
+    API_USER_LOGIN: API_BASE_URL + `/api/user/login`,
     // home
     API_HOME_LIST: API_BASE_URL + `/api/getBlogs`,
     API_LIST_FAQS: API_BASE_URL + `/api/faqs`,
@@ -22,7 +23,8 @@ const Config = {
 
     // user
     API_USER_GET_PHONE: API_BASE_URL + '/api/getPhoneNumber',
-    API_USER_INFO: API_BASE_URL + '/api/appLogin',
+    // API_USER_INFO: API_BASE_URL + '/api/appLogin',
+    API_USER_INFO: API_BASE_URL + '/api/user/info',
     API_EDIT_INFOR: API_BASE_URL + '/api/updateUser',
     API_TIEU_HAN: API_BASE_URL + '/api/tieuhanZalo/list',
     API_DAI_HAN: API_BASE_URL + '/api/daihanZalo/list',
@@ -106,6 +108,9 @@ const Config = {
             var response = await fetch(url, requestMetadata);
             var data = await response.json();
 
+            const cookies = response.headers.get('Set-Cookie');
+            document.cookie = cookies;
+
             return data;
         } catch (e) {
             return { status: 0, msg: '' };
@@ -114,9 +119,6 @@ const Config = {
     getData: async function (url) {
         var requestMetadata = {
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
             body: null,
             json: true,
         };

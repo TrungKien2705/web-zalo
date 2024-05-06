@@ -2,6 +2,7 @@ export const path = {
     WELLCOME: '/',
     HOME: '/home',
     REGISTER: '/register',
+    LOGIN: '/login',
     HOROSCOPE: '/horroscope',
     HOROSCOPESAVE: '/horroscopesave',
     CALENDAR: '/calendar',

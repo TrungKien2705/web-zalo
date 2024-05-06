@@ -40,7 +40,7 @@ const UseInfo = () => {
         if (!myUserInfo.isRegistered) {
             async function checkPage() {
                 myUserInfo.isNextPage = false;
-
+                setError(false);
                 navigateTo(path.HOME);
             }
             checkPage();

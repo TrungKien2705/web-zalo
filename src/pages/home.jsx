@@ -19,7 +19,6 @@ const Home = () => {
     const navigate = useNavigate();
     const ref = useRef();
     const [loading, setLoading] = useState(false);
-    const [msg, setMsg] = useState('');
     const [isShowFeed, setShowFeed] = useState(true);
     const [post, setPost] = useState([]);
     const [hasMore, setHasMore] = useState(true);
@@ -123,7 +122,7 @@ const Home = () => {
         const res = await homeModel.getAllTopics();
 
         setTopicList(res ? res : []);
-        homeModel.topic = topicList[0].id;
+        homeModel.topicId = res[0].id;
     };
     const handleTabTopic = (e) => {
         setCurrIdTopic(e);
@@ -182,7 +181,7 @@ const Home = () => {
                                 <Collapse in={showTopic} dimension="width">
                                     <div className="col-11">
                                         <Tabs
-                                            activeKey={homeModel.topicId.toString()}
+                                            activeKey={homeModel?.topicId?.toString()}
                                             onChange={(e) => handleTabTopic(e)}
                                             id="contact-list"
                                             scrollable

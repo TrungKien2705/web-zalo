@@ -1,5 +1,6 @@
 import Config from '../config';
 import api from 'zmp-sdk';
+import { path } from '../constant';
 
 class UserInfo {
     id = null;
@@ -26,17 +27,17 @@ class UserInfo {
     // Fake Login
     fakeAccessToken =
         'j_yKC7s-hNAvzH0qVRAhTBds5ZD-gzCpr94871wKroQ2rIGr7SYRTetD9szCwFf2s_yd0aJs_J67qJToFSFxQhx67rCz_zfilUCOJ3p-nmc9ptKQD8ku8ewN0s8LWDfbaOGmSmhQYbwqzZ0VBk3eNUpCAXvuwPGGthT91MYAYqNxj7LGFBAnQPcmV5K8ahf0a8S210ounZMGXtnoLiEmQjt1NMmNq8DstFGuO6krz5_zhKfQM9QkOkNKQbHc_h8LyxXW3qd_l33encG1KkEv4fR5N1OMWAOLh9na0osdfXkCl1HTBgdB4uI-3bPEgxGIY9nS14xQdaFP-oD6PSxc1TpdFmCRu_iraDeo2pBGy2wvzZStBRBt1_9pYtTnegvp';
-    fakeZaloId = '3997687486750426338';
+    fakeZaloId = '';
 
     isFake = true;
 
     async auth() {
-        const postBody = {
-            zalo_id: this.uId,
-            phone_number: this.phoneNumber,
-        };
+        // const postBody = {
+        //     zalo_id: this.uId,
+        //     phone_number: this.phoneNumber,
+        // };
 
-        const data = await Config.fetchData(Config.API_USER_INFO, postBody);
+        const data = await Config.getData(Config.API_USER_INFO);
         console.log('data Infor', data);
         if (data.status > 0) {
             console.log('status', data.status);
@@ -77,64 +78,83 @@ class UserInfo {
 
             this.user_id = data.id;
             this.isRegistered = true;
-            this.navigateTo('/home');
+            this.navigateTo(path.HOME);
+        }
+        return data;
+    }
+    async login() {
+        const postBody = {
+            email: this.email,
+            password: this.password,
+        };
+        const data = await Config.fetchData(Config.API_USER_LOGIN, postBody);
+
+        console.log('LOGIN USER');
+        console.log(data);
+
+        if (data.status > 0) {
+            this.user_id = data.id;
+            await this.auth();
+
+            this.isRegistered = true;
+            this.navigateTo(path.HOME);
         }
         return data;
     }
 
-    login() {
-        api.login({
-            success: () => {
-                // login thành công
-                // xử lý khi gọi api thành công
-                api.getAccessToken({
-                    success: (accessToken) => {
-                        // xử lý khi gọi api thành công
-                        if (this.isFake) {
-                            // this.accessToken = this.fakeAccessToken;
-                            this.accessToken = this.fakeAccessToken;
-                        } else {
-                            this.accessToken = accessToken;
-                        }
-                        console.log('accessToken', accessToken);
-                        this.checkLogin();
-                    },
-                    fail: (error) => {
-                        // xử lý khi gọi api thất bại
-                        console.log(error);
-                    },
-                });
+    // login() {
+    //     api.login({
+    //         success: () => {
+    //             // login thành công
+    //             // xử lý khi gọi api thành công
+    //             api.getAccessToken({
+    //                 success: (accessToken) => {
+    //                     // xử lý khi gọi api thành công
+    //                     if (this.isFake) {
+    //                         // this.accessToken = this.fakeAccessToken;
+    //                         this.accessToken = this.fakeAccessToken;
+    //                     } else {
+    //                         this.accessToken = accessToken;
+    //                     }
+    //                     console.log('accessToken', accessToken);
+    //                     this.checkLogin();
+    //                 },
+    //                 fail: (error) => {
+    //                     // xử lý khi gọi api thất bại
+    //                     console.log(error);
+    //                 },
+    //             });
 
-                api.getUserInfo({
-                    success: (data) => {
-                        // xử lý khi gọi api thành công
-                        const { userInfo } = data;
-                        if (this.isFake) {
-                            this.uId = this.fakeZaloId;
-                        } else {
-                            this.uId = userInfo.id;
-                        }
-                        // this.uId = userInfo.id;
-                        this.name = userInfo.name;
-                        console.log('userInfo of Zalo::::', userInfo);
-                        if (!this.avatar) {
-                            this.avatar = userInfo.avatar;
-                        }
+    //             api.getUserInfo({
+    //                 success: (data) => {
+    //                     // xử lý khi gọi api thành công
+    //                     const { userInfo } = data;
+    //                     if (this.isFake) {
+    //                         this.uId = this.fakeZaloId;
+    //                     } else {
+    //                         this.uId = userInfo.id;
+    //                     }
+    //                     // this.uId = userInfo.id;
+    //                     this.name = userInfo.name;
+    //                     console.log('userInfo of Zalo::::', userInfo);
+    //                     if (!this.avatar) {
+    //                         this.avatar = userInfo.avatar;
+    //                     }
 
-                        this.checkLogin();
-                    },
-                    fail: (error) => {
-                        // xử lý khi gọi api thất bại
-                        console.log('fail', error);
-                    },
-                });
-            },
-            fail: (error) => {
-                // login thất bại
-                console.log('fail', error);
-            },
-        });
-    }
+    //                     this.checkLogin();
+    //                 },
+    //                 fail: (error) => {
+    //                     // xử lý khi gọi api thất bại
+    //                     console.log('fail', error);
+    //                 },
+    //             });
+    //         },
+    //         fail: (error) => {
+    //             // login thất bại
+    //             console.log('fail', error);
+    //         },
+    //     });
+    // }
 
     async getPhoneNumberByToken(token) {
         const postBody = {
@@ -145,29 +165,6 @@ class UserInfo {
         console.log('data Token', postBody);
         console.log(data);
         return data;
-    }
-    verifyPhone() {
-        // if (!this.isRegistered) {
-        //     console.log('2. Phone');
-        //     api.getPhoneNumber({
-        //         success: async (data) => {
-        //             // xử lý khi gọi api thành công
-        //             const number = await this.getPhoneNumberByToken(data.number.token);
-        //             console.log('number', number);
-        //             this.phoneNumber = number.phone_number;
-        //             this.checkLogin();
-        //         },
-        //         fail: (error) => {
-        //             // xử lý khi gọi api thất bại
-        //             console.log(error);
-        //             this.phoneNumber = '';
-        //             this.checkLogin();
-        //         },
-        //     });
-        // } else {
-        //     this.checkLogin();
-        // }
-        // this.checkLogin();
     }
 
     checkLogin() {

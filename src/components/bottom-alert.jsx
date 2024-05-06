@@ -3,7 +3,6 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Button } from 'zmp-ui';
 import IconLogo from '../static/image/logo/logo.png';
 import { useNavigate } from 'react-router';
-
 import '../css/alert.scss';
 import myUserInfo from '../models/user-info';
 import { path } from '../constant';
@@ -15,7 +14,7 @@ function BottomAlert(props) {
     const handleisRegistered = () => {
         if (!myUserInfo.isRegistered) {
             setError(false);
-            navitage(path.REGISTER);
+            navitage(path.LOGIN);
         }
     };
     switch (icon) {
@@ -42,10 +41,10 @@ function BottomAlert(props) {
                 <Offcanvas.Body className="py-4 text-center">
                     <img src={IconLogo} alt="logo" className="mb-3" style={{ width: '11%' }} />
                     {props.type == 'error' ? (
-                        <p className="fw-bold text-uppercase">{props.msg}</p>
+                        <p className="fw-bold text-uppercase">{msg}</p>
                     ) : (
                         <Button color="#ffff" fullWidth onClick={() => handleisRegistered()}>
-                            {props.msg}
+                            {msg}
                         </Button>
                     )}
                 </Offcanvas.Body>

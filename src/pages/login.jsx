@@ -9,21 +9,18 @@ import ModalLoading from '../components/modal-loading';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { path } from '../constant';
-const Register = () => {
+const Login = () => {
     const navigate = useNavigate();
     myUserInfo.navigateTo = navigate;
-    const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
-    const [isInvalid, setInvalid] = useState(false);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [isShow, setIsShow] = useState(false);
     const [msg, setMsg] = useState('');
+    const [isShow, setIsShow] = useState(false);
     const checkValidateInput = () => {
         let isValid = true;
-        let arrState = [fullName, email, phoneNumber, password];
+        let arrState = [email, password];
         for (let i = 0; i < arrState.length; i++) {
             if (!arrState[i]) {
                 isValid = false;
@@ -31,7 +28,6 @@ const Register = () => {
             } else if (password.length < 8) {
                 setError(true);
                 setMsg('Mật khẩu cần phải có 8 chữ!');
-                // setInvalid(true);
                 isValid = false;
                 break;
             }
@@ -45,23 +41,17 @@ const Register = () => {
     const handleCloseAlert = () => {
         setError(false);
     };
-    const handleRegisterUser = async () => {
-        setInvalid(true);
+    const handleLoginUser = async () => {
         let isValid = checkValidateInput();
         if (isValid == false) return;
         setLoading(true);
-        myUserInfo.fullname = fullName;
-        myUserInfo.phoneNumber = phoneNumber;
         myUserInfo.email = email;
         myUserInfo.password = password;
-
-        console.log(JSON.stringify(myUserInfo));
-
-        const data = await myUserInfo.register();
+        const data = await myUserInfo.login();
         console.log('data', data);
         if (data.status == 0) {
             setLoading(false);
-            setMsg(data.msg || 'Đăng ký thất bại!');
+            setMsg(data.msg || 'Đăng nhập thất bại!');
             setError(true);
         }
     };
@@ -76,36 +66,6 @@ const Register = () => {
                 </div>
                 <div className="form">
                     <form method="post" onSubmit={(e) => registerUser(e)}>
-                        <div className="form__group field">
-                            <input
-                                type="input"
-                                className="form__field"
-                                placeholder="Họ tên"
-                                name="name"
-                                id="name"
-                                onChange={(e) => setFullName(e.target.value)}
-                                value={fullName}
-                                required
-                            />
-                            <label htmlFor="name" className="form__label">
-                                Họ và tên
-                            </label>
-                        </div>
-                        <div className="form__group field">
-                            <input
-                                type="tel"
-                                className="form__field"
-                                placeholder="Số điện thoại"
-                                name="phone"
-                                id="phone"
-                                onChange={(e) => setPhoneNumber(e.target.value)}
-                                required
-                                value={phoneNumber}
-                            />
-                            <label htmlFor="phone" className="form__label">
-                                Số điện thoại
-                            </label>
-                        </div>
                         <div className="form__group field">
                             <input
                                 type="email"
@@ -140,21 +100,21 @@ const Register = () => {
                                 Mật khẩu
                             </label>
                         </div>
-                        <div className="mt-5">
+                        <div className="mt-5    ">
                             <button
-                                onClick={() => handleRegisterUser()}
+                                onClick={() => handleLoginUser()}
                                 className="btn button-submit mb-3"
                                 type="submit"
                                 style={{ background: 'var(--primary-01)' }}
                             >
-                                Đăng ký
+                                Đăng nhập
                             </button>
                         </div>
                     </form>
                     <div className="text-center mt-4 fs-3">
-                        Đã có tài khoản?{' '}
-                        <Link to={path.LOGIN} className="text-danger">
-                            Đăng nhập
+                        Chưa có tài khoản?{' '}
+                        <Link to={path.REGISTER} className="text-danger">
+                            Đăng ký
                         </Link>
                     </div>
                 </div>
@@ -165,4 +125,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
